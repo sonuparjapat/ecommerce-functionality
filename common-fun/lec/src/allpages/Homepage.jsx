@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { homedata } from '../Redux/Homereducer/action'
 import { Location } from 'react-router-dom'
 import Filter from './Filter'
@@ -12,7 +12,9 @@ export default function Homepage() {
  const location=useLocation()
     let obj={
         params:{
-            gender:searcParms.getAll("gender")}
+            gender:searcParms.getAll("gender"),
+        _sort:"price",
+    _order:searcParms.get("order")}
     }
     useEffect(()=>{
 
@@ -34,7 +36,7 @@ export default function Homepage() {
     <p>{item.title}</p>
     <p>{item.price}</p>
     <p>{item.gender}</p>
-    <button>See More Information</button>
+    <button><Link to={`/extra/${item.id}`}>See More Information</Link></button>
  
     </div>)}
 
