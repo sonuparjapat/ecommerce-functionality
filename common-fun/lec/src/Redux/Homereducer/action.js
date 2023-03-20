@@ -9,9 +9,9 @@ export const successhomedata=(payload)=>{
 export const failomedata=()=>{
     return {type:GET_HOME_REQUEST}
 }
-export const homedata=(dispatch)=>{
+export const homedata=(obj)=>(dispatch)=>{
     dispatch(gethomedata())
-    axios.get("https://cute-red-fossa-slip.cyclic.app/ecommercefun").then((res)=>{
+    axios.get("https://cute-red-fossa-slip.cyclic.app/ecommercefun",obj).then((res)=>{
         console.log(res.data)
         dispatch(successhomedata(res.data))
     }).catch((error)=>dispatch(failomedata()))
