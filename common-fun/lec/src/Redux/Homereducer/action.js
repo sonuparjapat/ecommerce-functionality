@@ -17,3 +17,5 @@ export const homedata=(obj,id)=>(dispatch)=>{
         dispatch(successhomedata(res.data))
     }).catch((error)=>dispatch(failomedata()))
 }
+
+
